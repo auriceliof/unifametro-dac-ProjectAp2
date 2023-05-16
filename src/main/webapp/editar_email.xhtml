@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head><title>Editing</title></h:head>
+	
+<h:body>	
+		
+	<h:form id="form1">
+	
+		<p:panel header="Página de Edição de Emails">
+			
+			<p:link outcome="itens_enviados" value="voltar" 
+				style="display: flex;
+				justify-content: end; 
+				margin-bottom: 10px;"/>
+				
+			<p:dataTable id="dt" value="#{emailBean.list}" var="l" selection="#{emailBean.email}" selectionMode="single" rowKey="#{l.id}"
+			paginator="true" rows="3" paginatorPosition="bottom">	
+										
+				<p:column headerText="Id">
+					<p:column>
+						<p:outputLabel value="#{l.id}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Destionatário">
+					<p:column>
+						<p:outputLabel value="#{l.destinatario}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Corpo">
+					<p:column>
+						<p:outputLabel value="#{l.corpo}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Data de envio" sortBy="#{l.dataEnvio}">
+					<p:column>
+						<p:outputLabel value="#{l.dataEnvio}">
+							<f:convertDateTime pattern="dd/MM/YYYY"/>
+						</p:outputLabel>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Confirma leitura">
+					<p:column>
+						<p:outputLabel value="#{l.confirmaLeitura}"/>							
+					</p:column>										
+				</p:column>
+								
+				<p:column headerText="Ações">
+							
+					<p:column>
+						<p:commandButton icon="pi pi-pencil" oncomplete="PF('editar').show()" update="form_edit"
+							style="border: 5px solid; 
+							border-radius: 50%; 
+							background-color: #8e44ad;
+							margin-right: 7px;
+							width: 3rem;
+							height: 3rem;">	
+							<f:setPropertyActionListener value="#{l}" target="#{emailBean.email}"/>							
+						</p:commandButton>									
+					</p:column>	
+												
+				</p:column>
+							
+			</p:dataTable>
+			
+		</p:panel>	
+		
+	</h:form>
+		
+	<p:dialog header="Editar Email" widgetVar="editar">
+		<h:form id="form_edit">
+			<h:panelGrid columns="2" cellpadding="5" id="editar">
+				<p:outputLabel for="destinatario" value="Destinatário: "/>
+				<p:inputText id="destinatario" value="#{emailBean.email.destinatario}" required="true" requiredMessage="Campo Obrigatorio"/>
+				
+				<p:outputLabel for="corpo" value="Corpo: "/>
+				<p:inputTextarea id="corpo" value="#{emailBean.email.corpo}"/>				
+				
+				<p:outputLabel for="dataEnvio" value="Data de Envio: "/>
+				<p:datePicker id="dataEnvio" value="#{emailBean.email.dataEnvio}"/>
+				
+				<p:outputLabel for="confirmaLeitura" value="Confirma Leitura: "/>
+				<p:selectBooleanCheckbox id="confirmaLeitura" value="#{emailBean.email.confirmaLeitura}"/>			
+			</h:panelGrid>
+				
+			<p:commandButton value="Atualizar" action="#{emailBean.editar}" oncomplete="PF('editar').hide()" style="background-color:#27ae60; margin-top: 40px;" update="form1"/>		
+		</h:form>
+	</p:dialog>
+
+</h:body>
+
+</html>

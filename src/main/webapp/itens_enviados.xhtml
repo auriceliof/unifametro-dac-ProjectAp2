@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Listing</title>
+</h:head>
+
+<h:body>	
+		
+	<h:form id="form1">
+			
+		<p:panel header="Página de Listagem de Emails" >
+		
+			
+			
+			<div style="display: flex; justify-content: space-around; margin-bottom: 25px;">
+				
+				<p:linkButton action="Enviar_email" outcome="envio_email" value="Enviar" icon="pi pi-send" 
+					style="border: 5px solid; 
+					border-radius: 25px; 
+					width: 8rem;"/>
+				
+				<p:linkButton action="Visualizar_usuario" outcome="visualizar_usuario" value="Usuários" icon="pi pi-users" 
+					style="border: 5px solid; 
+					background-color: #27ae60;
+					border-radius: 25px; 
+					width: 8rem;"/>
+						
+				<p:linkButton action="Visualizar_email" outcome="visualizar_email" value="Visualizar" icon="pi pi-search"
+					style="border: 5px solid; 
+					border-radius: 25px; 
+					background-color: #f39c12;
+					width: 8rem;"/>						
+				
+				<p:linkButton action="editar_email" outcome="editar_email" value="Editar" icon="pi pi-pencil" 
+					style="border: 5px solid; 
+					border-radius: 25px; 
+					background-color: #8e44ad;
+					width: 8rem;"/>
+					
+				<p:linkButton action="excluir_email" outcome="excluir_email" value="Excluir" icon="pi pi-trash" 
+					style="border: 5px solid; 
+					border-radius: 25px; 
+					background-color: #e55039;
+					width: 8rem;"/>
+				
+				<p:linkButton outcome="estatistica" value="Estatística" icon="pi pi-chart-line"
+					style="border: 5px solid; 
+					border-radius: 25px; 
+					background-color: #f78fb3;
+					width: 8rem;"/>	
+											
+				<p:commandButton title="EstatÃ­stica" type="button" icon="pi pi-chart-line" onclick="PF('dlg1').show()"
+					style="border: 5px solid; 
+					border-radius: 50%; 
+					background-color: #f78fb3;
+					width: 3rem;"/>	
+					
+				<p:linkButton action="Sair" outcome="login" icon="pi pi-sign-out" title="Sair" 
+					style="border: 5px solid; 
+					border-radius: 50%; 
+					background-color: #7f8c8d;
+					width: 3rem;"/>	
+										
+			</div>
+			
+			<p:dataTable id="dt" value="#{emailBean.list}" var="l" selection="#{emailBean.email}" selectionMode="single" rowKey="#{l.id}"
+			paginator="true" rows="3" paginatorPosition="bottom">	
+										
+				<p:column headerText="Id">
+					<p:column>
+						<p:outputLabel value="#{l.id}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Destionatário">
+					<p:column>
+						<p:outputLabel value="#{l.destinatario}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Corpo">
+					<p:column>
+						<p:outputLabel value="#{l.corpo}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Data de envio" sortBy="#{l.dataEnvio}">
+					<p:column>
+						<p:outputLabel value="#{l.dataEnvio}">
+							<f:convertDateTime pattern="dd/MM/YYYY"/>
+						</p:outputLabel>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Confirma leitura">
+					<p:column>
+						<p:outputLabel value="#{l.confirmaLeitura}"/>							
+					</p:column>										
+				</p:column>
+								
+				<p:column headerText="Ações">
+					<p:column>
+						<p:commandButton icon="pi pi-search" oncomplete="PF('visualizar').show()" title="Visualizar" update="form_view"
+							style="border: 5px solid; 
+							border-radius: 50%;
+							background-color: #f39c12;
+							margin-right: 7px;
+							width: 3rem;
+							height: 3rem;">							
+							<f:setPropertyActionListener value="#{l}" target="#{emailBean.email}"/>								
+						</p:commandButton>
+															
+					</p:column>				
+					<p:column>
+						<p:commandButton icon="pi pi-pencil" oncomplete="PF('editar').show()" title="Editar" update="form_edit"
+							style="border: 5px solid; 
+							border-radius: 50%; 
+							background-color: #8e44ad;
+							margin-right: 7px;
+							width: 3rem;
+							height: 3rem;">	
+							<f:setPropertyActionListener value="#{l}" target="#{emailBean.email}"/>							
+						</p:commandButton>									
+					</p:column>	
+					<p:column>
+						<p:commandButton icon="pi pi-trash" oncomplete="PF('excluir').show()" title="Deletar" update="form_del"
+							style="border: 5px solid; 
+							border-radius: 50%; 
+							background-color: #e55039;
+							margin-right: 7px;
+							width: 3rem;
+							height: 3rem;">	
+							<f:setPropertyActionListener value="#{l}" target="#{emailBean.email}"/>							
+						</p:commandButton>														
+					</p:column>				
+										
+				</p:column>
+							
+			</p:dataTable>
+			
+		</p:panel>	
+		
+	</h:form>
+	
+	<p:dialog header="Quantide de Emails" widgetVar="dlg1" minHeight="40" width="350" showEffect="fade">
+ 		<p:outputLabel value="#{emailBean.contarEmail}"/>
+	</p:dialog>
+		
+	<p:dialog header="Visualizar Email" widgetVar="visualizar" >
+		<h:form id="form_view" >
+			<h:panelGrid columns="2" cellpadding="5" id="visualizar">
+					<p:outputLabel for="destinatario" value="Destinatário: "/>
+					<p:inputText id="destinatario" value="#{emailBean.email.destinatario}" disabled="true"/>
+					
+					<p:outputLabel for="corpo" value="Corpo: "/>
+					<p:inputTextarea id="corpo" value="#{emailBean.email.corpo}" disabled="true"/>				
+					
+					<p:outputLabel for="dataEnvio" value="Data de Envio: "/>
+					<p:datePicker id="dataEnvio" value="#{emailBean.email.dataEnvio}" disabled="true"/>
+										
+					<p:outputLabel id="confirmaLeitura"  disabled="true" rendered="#{emailBean.email.confirmaLeitura}">
+						<p:outputLabel for="confirmaLeitura" value="Há uma solicitação de confirmação de leitura! Deseja confirmar? " 
+							style="color:#e55039"/>
+							<div style="margin-top: 25px">							
+								<p:commandButton value="Sim" onclick="PF('leituraSim').show()" style="background-color:#27ae60; margin-right: 10px;"/>			
+								<p:commandButton value="Não" oncomplete="PF('visualizar').hide()" style="background-color:#e55039" update="form1" />
+							</div>		
+					</p:outputLabel>				
+														
+					<p:dialog header="Confirmação de Leitura" widgetVar="leituraSim" showEffect="fade">
+		  				<p class="m-0" style="margin-bottom: 40px"><p:outputLabel value="Enviada com sucesso!"/></p>
+		  					 
+	   					<p:commandButton value="Fechar" oncomplete="PF('visualizar').hide()"/>
+					</p:dialog>									
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>			
+	
+	<p:dialog header="Editar Email" widgetVar="editar">
+		<h:form id="form_edit">
+			<h:panelGrid columns="2" cellpadding="5" id="editar">
+				<p:outputLabel for="destinatario" value="Destinatário: "/>
+				<p:inputText id="destinatario" value="#{emailBean.email.destinatario}" required="true" requiredMessage="Campo Obrigatorio"/>
+				
+				<p:outputLabel for="corpo" value="Corpo: "/>
+				<p:inputTextarea id="corpo" value="#{emailBean.email.corpo}"/>				
+				
+				<p:outputLabel for="dataEnvio" value="Data de Envio: "/>
+				<p:datePicker id="dataEnvio" value="#{emailBean.email.dataEnvio}"/>
+				
+				<p:outputLabel for="confirmaLeitura" value="Confirma Leitura: "/>
+				<p:selectBooleanCheckbox id="confirmaLeitura" value="#{emailBean.email.confirmaLeitura}"/>			
+			</h:panelGrid>
+				
+			<p:commandButton value="Atualizar" action="#{emailBean.editar}" oncomplete="PF('editar').hide()" style="background-color:#27ae60; margin-top: 40px;" update="form1"/>		
+		</h:form>
+	</p:dialog>
+	
+	<p:dialog header="Deseja relamente excluir o Email?" widgetVar="excluir">
+		<h:form id="form_del">
+			<h:panelGrid columns="2" cellpadding="5" id="excluir">
+				<p:inputText id="destinatario" value="#{emailBean.email.destinatario}" disabled="true"/>
+			</h:panelGrid>
+				
+			<p:commandButton value="Sim" action="#{emailBean.deletar}" oncomplete="PF('excluir').hide()" style="background-color:#27ae60; margin-right: 10px; margin-top: 20px;" update="form1"/>	
+			<p:commandButton value="Não" oncomplete="PF('excluir').hide()" style="background-color:#e55039"/>			
+		</h:form>					
+	</p:dialog>	
+
+</h:body>
+
+</html>
