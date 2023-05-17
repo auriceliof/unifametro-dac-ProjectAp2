@@ -15,7 +15,7 @@
 		
 	<h:form id="form1">
 			
-		<p:panel header="Página de Listagem de Usuários">
+		<p:panel header="Listagem de Usuários">
 		
 			<p:link outcome="itens_enviados" value="voltar" 
 				style="display: flex;
@@ -45,16 +45,21 @@
 			</div>
 			
 			<p:dataTable id="dt" value="#{usuarioBean.list}" var="l" selection="#{usuarioBean.usuario}" selectionMode="single" rowKey="#{l.id}"
-			paginator="true" rows="3" paginatorPosition="bottom">	
+			paginator="true" rows="5" paginatorPosition="bottom">	
 										
 				<p:column headerText="Id">
 					<p:column>
 						<p:outputLabel value="#{l.id}"/>							
 					</p:column>										
 				</p:column>
-				<p:column headerText="Usuário">
+				<p:column headerText="Nome">
 					<p:column>
 						<p:outputLabel value="#{l.nomeUsuario}"/>							
+					</p:column>										
+				</p:column>
+				<p:column headerText="Login">
+					<p:column>
+						<p:outputLabel value="#{l.login}"/>							
 					</p:column>										
 				</p:column>
 				<p:column headerText="Data de Criação">
@@ -116,8 +121,11 @@
 	<p:dialog header="Visualizar Usuario" widgetVar="visualizar" >
 		<h:form id="form_view" >
 			<h:panelGrid columns="2" cellpadding="5" id="visualizar">
-				<p:outputLabel for="usuario" value="Usuário: "/>
-				<p:inputText id="usuario" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true"/>
+				<p:outputLabel for="nome" value="Nome: "/>
+				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true"/>
+				
+				<p:outputLabel for="login" value="Login: "/>
+				<p:inputText id="login" value="#{usuarioBean.usuario.login}" disabled="true"/>
 				
 				<p:outputLabel for="senha" value="Senha: "/>
 				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" disabled="true"/>				
@@ -132,8 +140,11 @@
 	<p:dialog header="Editar Email" widgetVar="editar">
 		<h:form id="form_edit">
 			<h:panelGrid columns="2" cellpadding="5" id="editar">
-				<p:outputLabel for="usuario" value="Usuário:"/>
-				<p:inputText id="usuario" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio"/>
+				<p:outputLabel for="nome" value="Nome:"/>
+				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio"/>
+				
+				<p:outputLabel for="login" value="Login:"/>
+				<p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" requiredMessage="Campo Obrigatorio"/>
 				
 				<p:outputLabel for="senha" value="Senha:"/>
 				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="Campo Obrigatorio"/>			
