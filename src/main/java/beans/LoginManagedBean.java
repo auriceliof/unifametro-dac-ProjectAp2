@@ -27,7 +27,7 @@ public class LoginManagedBean implements Serializable{
 	
 	public String envia() {
 
-		usuario = LoginDAO.getUsuario(usuario.getNomeUsuario(), usuario.getSenha());
+		usuario = LoginDAO.getUsuario(usuario.getLogin(), usuario.getSenha());
 		
 		if (usuario != null) {
 			

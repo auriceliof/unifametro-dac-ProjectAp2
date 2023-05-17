@@ -19,13 +19,16 @@ public class Usuario {
       @Column(name="id", nullable=false, unique=true)
       private int id;
 
-      @Column(name="user_name", nullable=false, unique=true)
+      @Column(name="nome", nullable=false, unique=true)
       private String nomeUsuario;
-
-      @Column(name="password", nullable=false, unique=false)
+      
+      @Column(name="login", nullable=false, unique=true)
+      private String login;
+      
+      @Column(name="senha", nullable=false, unique=false)
       private String senha;
       
-      @Column(name="created")
+      @Column(name="data_criacao")
       @Temporal(TemporalType.DATE)
       private Date dataCriacao;
      
@@ -43,6 +46,14 @@ public class Usuario {
 
       public void setNomeUsuario(String nomeUsuario) {
             this.nomeUsuario = nomeUsuario;
+      }
+
+      public String getLogin() {
+		return login;
+      }
+
+      public void setLogin(String login) {
+		this.login = login;
       }
 
       public String getSenha() {

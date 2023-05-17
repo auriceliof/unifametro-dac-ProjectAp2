@@ -16,7 +16,7 @@
 				<p:autoUpdate />
 			</p:messages>
 			
-			<p:panel header="Página de Criação de Usuários">
+			<p:panel header="Cadastro de Usuários">
 			
 			<div>
 				<p:link outcome="visualizar_usuario" value="voltar" 
@@ -26,9 +26,14 @@
 			</div>
 			
 				<h:panelGrid columns="1" >
-					<div >
-						<p:outputLabel for="login" value="Login do usuário "/>
-						<p:inputText id="login" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio"/>
+					<div style="margin-bottom: 20px;">
+						<p:outputLabel for="nome" value="Nome do usuário "/>
+						<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio"/>
+					</div>
+					
+					<div style="margin-bottom: 20px;">
+						<p:outputLabel for="login" value="Login "/>
+						<p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" requiredMessage="Campo Obrigatorio"/>
 					</div>
 					
 					<div style="margin-bottom: 20px;">
