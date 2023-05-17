@@ -20,7 +20,7 @@ public class UsuarioBean implements Serializable{
 	
 	private Usuario usuario = new Usuario();
 	
-	private Date dataCriacao = new Date();
+	private Date dataCadastro = new Date();
 	
 	private List<Usuario> list;
 	
@@ -30,7 +30,7 @@ public class UsuarioBean implements Serializable{
 	public String salvar() {
 			
 		try {			
-			usuario.setDataCriacao(dataCriacao);
+			usuario.setDataCadastro(dataCadastro);
 			UsuarioDao.salvar(usuario);
 			MessageUtil.sucesso("Sucesso: ", "Usuário criado com sucesso!");
 			usuario = new Usuario();

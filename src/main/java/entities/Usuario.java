@@ -28,9 +28,9 @@ public class Usuario {
       @Column(name="senha", nullable=false, unique=false)
       private String senha;
       
-      @Column(name="data_criacao")
+      @Column(name="data_cadastro")
       @Temporal(TemporalType.DATE)
-      private Date dataCriacao;
+      private Date dataCadastro;
      
       public int getId() {
 		return id;
@@ -64,11 +64,11 @@ public class Usuario {
             this.senha = senha;
       }
             
-      public Date getDataCriacao() {
-    	  	return dataCriacao;
-      }	
-
-      public void setDataCriacao(Date dataCriacao) {
-    	  	this.dataCriacao = dataCriacao;
+      public Date getDataCadastro() {
+    	  return dataCadastro;
       }
+
+      public void setDataCadastro(Date dataCadastro) {
+    	  this.dataCadastro = dataCadastro;
+      }      
  }

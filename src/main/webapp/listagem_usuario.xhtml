@@ -62,9 +62,9 @@
 						<p:outputLabel value="#{l.login}"/>							
 					</p:column>										
 				</p:column>
-				<p:column headerText="Data de Criação">
+				<p:column headerText="Data de Cadastro">
 					<p:column>
-						<p:outputLabel value="#{l.dataCriacao}">
+						<p:outputLabel value="#{l.dataCadastro}">
 							<f:convertDateTime pattern="dd/MM/YYYY"/>
 						</p:outputLabel>					
 					</p:column>										
@@ -120,34 +120,34 @@
 		
 	<p:dialog header="Visualizar Usuario" widgetVar="visualizar" >
 		<h:form id="form_view" >
-			<h:panelGrid columns="2" cellpadding="5" id="visualizar">
+			<h:panelGrid columns="2" cellpadding="5" id="visualizar" style="width: 500px;">
 				<p:outputLabel for="nome" value="Nome: "/>
-				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true"/>
+				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true" style="width: 300px;"/>
 				
 				<p:outputLabel for="login" value="Login: "/>
-				<p:inputText id="login" value="#{usuarioBean.usuario.login}" disabled="true"/>
+				<p:inputText id="login" value="#{usuarioBean.usuario.login}" disabled="true" style="width: 300px;"/>
 				
 				<p:outputLabel for="senha" value="Senha: "/>
-				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" disabled="true"/>				
+				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" disabled="true" style="width: 300px;"/>				
 				
-				<p:outputLabel for="dataCriacao" value="Data de Criação: "/>
-				<p:datePicker id="dataCriacao" value="#{usuarioBean.usuario.dataCriacao}" disabled="true"/>		
+				<p:outputLabel for="dataCadastro" value="Data de Cadastro: "/>
+				<p:datePicker id="dataCadastro" value="#{usuarioBean.usuario.dataCadastro}" disabled="true" style="width: 300px;" />		
 															
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>			
 	
-	<p:dialog header="Editar Email" widgetVar="editar">
+	<p:dialog header="Editar Email" widgetVar="editar" >
 		<h:form id="form_edit">
-			<h:panelGrid columns="2" cellpadding="5" id="editar">
+			<h:panelGrid columns="2" cellpadding="5" id="editar" style="width: 500px;">
 				<p:outputLabel for="nome" value="Nome:"/>
-				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio"/>
+				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}" required="true" requiredMessage="Campo Obrigatorio" style="width: 300px;"/>
 				
 				<p:outputLabel for="login" value="Login:"/>
-				<p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" requiredMessage="Campo Obrigatorio"/>
+				<p:inputText id="login" value="#{usuarioBean.usuario.login}" required="true" requiredMessage="Campo Obrigatorio" style="width: 300px;"/>
 				
 				<p:outputLabel for="senha" value="Senha:"/>
-				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="Campo Obrigatorio"/>			
+				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="Campo Obrigatorio" style="width: 300px;"/>			
 			</h:panelGrid>
 				
 			<p:commandButton value="Atualizar" action="#{usuarioBean.editar}" oncomplete="PF('editar').hide()" style="background-color:#27ae60; margin-top: 40px;" update="form1"/>		
@@ -156,8 +156,8 @@
 	
 	<p:dialog header="Deseja relamente excluir o Usuário?" widgetVar="excluir">
 		<h:form id="form_del">
-			<h:panelGrid columns="2" cellpadding="5" id="excluir">
-				<p:inputText id="usuario" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true"/>
+			<h:panelGrid columns="2" cellpadding="5" id="excluir" style="width: 400px;">
+				<p:inputText id="usuario" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true" style="width: 300px;"/>
 			</h:panelGrid>
 				
 			<p:commandButton value="Sim" action="#{usuarioBean.deletar}" oncomplete="PF('excluir').hide()" style="background-color:#27ae60; margin-right: 10px; margin-top: 20px;" update="form1"/>	
