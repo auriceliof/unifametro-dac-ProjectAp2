@@ -31,7 +31,7 @@ public class LoginManagedBean implements Serializable{
 		
 		if (usuario != null) {
 			
-			return "/itens_enviados";
+			return "/listagem_incidente";
 			
 		} else {
 			usuario = new Usuario();
