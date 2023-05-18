@@ -29,18 +29,18 @@
 				padding: 40px;
 				border-radius: 20px;" >
 			
-				<p:panel id="statTotal" header="Total de Emails" 
+				<p:panel id="statTotal" header="Total de Incidentes" 
 					style="margin-right: 40px;
 					text-align: center">
 					<p:outputLabel widgetVar="statTotal" >
-						<p:outputLabel value="#{emailBean.contarEmail}" 
+						<p:outputLabel value="#{incidenteBean.contarIncidente}" 
 							style="color: #00f; 
 							font-size: 2em;
 							font-weight: bold"/>
 					</p:outputLabel>
 				</p:panel>
 								
-				<p:panel id="statUser" header="Total de Usuário"
+				<p:panel id="statUser" header="Total de Usuários"
 					style="text-align: center">
 					<p:outputLabel widgetVar="statUser" >
 						<p:outputLabel value="#{usuarioBean.contarUsuario}" 

@@ -57,7 +57,7 @@ public class Incidente implements Serializable {
 	private String providencias;
 	
 	@Column(name="data_cadastro")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataCadastro;
 
 	public int getId() {

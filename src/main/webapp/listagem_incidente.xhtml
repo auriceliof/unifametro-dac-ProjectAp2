@@ -78,7 +78,7 @@
 				<p:column headerText="Data de Cadastro" sortBy="#{l.dataCadastro}">
 					<p:column>
 						<p:outputLabel value="#{l.dataCadastro}">
-							<f:convertDateTime pattern="dd/MM/YYYY"/>
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm:ss" timeZone="GMT-03:00"/>
 						</p:outputLabel>							
 					</p:column>										
 				</p:column>
@@ -147,7 +147,9 @@
 					<p:inputTextarea id="violacao" value="#{incidenteBean.incidente.violacaoVitima}" disabled="true"/>
 					
 					<p:outputLabel for="dataCadastro" value="Data de Cadastro: "/>
-					<p:datePicker id="dataCadastro" value="#{incidenteBean.incidente.dataCadastro}" disabled="true"/>
+					<p:inputText id="dataCadastro" value="#{incidenteBean.incidente.dataCadastro}" disabled="true">
+						<f:convertDateTime pattern="dd/MM/yyyy - HH:mm:ss" timeZone="GMT-03:00"/>
+					</p:inputText>
 																															
 			</h:panelGrid>
 		</h:form>
