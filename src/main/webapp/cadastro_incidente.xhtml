@@ -47,13 +47,28 @@
 			<h:panelGrid columns="3" >
 
 				<div >
-					<p:outputLabel value="Nome: 	" />
+					<p:outputLabel value="Nome: " />
 					<p:inputText value="#{incidenteBean.incidente.nomeVitima}"/>
 				</div>
 
 				<div >
-					<p:outputLabel value="Sexo 		" />
-					<p:inputTextarea value="#{incidenteBean.incidente.sexoVitima}" />
+					<p:outputLabel value="Sexo: " />
+					<p:inputText value="#{incidenteBean.incidente.sexoVitima}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Idade: " />
+					<p:inputText value="#{incidenteBean.incidente.idadeVitima}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Série/Turno: " />
+					<p:inputText value="#{incidenteBean.incidente.escolarVitima}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Endereço: " />
+					<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" />
 				</div>
 				
 			</h:panelGrid>
@@ -63,21 +78,112 @@
 			<h:panelGrid columns="3">
 
 				<div >
-					<p:outputLabel value="Nome: 	" />
+					<p:outputLabel value="Nome: " />
 					<p:inputText value="#{incidenteBean.incidente.nomeAgressor}"
 						required="true" requiredMessage="Campo Obrigatorio" />
 				</div>
 
 				<div >
-					<p:outputLabel value="Sexo 		" />
-					<p:inputTextarea value="#{incidenteBean.incidente.sexoAgressor}" />
+					<p:outputLabel value="Sexo: " />
+					<p:inputText value="#{incidenteBean.incidente.sexoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Idade: " />
+					<p:inputText value="#{incidenteBean.incidente.idadeAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Grau de parentesco/Relacionamento com a vítima: " />
+					<p:inputText value="#{incidenteBean.incidente.parenteAgressor}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Ocupação(Profissão): " />
+					<p:inputText value="#{incidenteBean.incidente.ocupacaoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Raço/Cor: " />
+					<p:inputText value="#{incidenteBean.incidente.racaAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Identidade de gênero: " />
+					<p:inputText value="#{incidenteBean.incidente.generoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Orientação sexual: " />
+					<p:inputText value="#{incidenteBean.incidente.sexualAgressor}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Escolaridade: " />
+					<p:inputText value="#{incidenteBean.incidente.escolarAgressor}" />
+				</div>
+				
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="INCIDENTE" style="margin-bottom: 5px;">
+			
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 1rem; color: #000;">
+					Relate o que a criança/adolescente contou para você. Tente ser o mais claro possivel,	mas não insista 
+					com a vitima para que ela diga além do que ela consegue, pois isso pode acarretar mais dor para ela.
+				</span>
+			</div>
+				
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="" />
+					<p:inputTextarea value="#{incidenteBean.incidente.relatoVitima}"
+						required="true" requiredMessage="Campo Obrigatorio" />
 				</div>
 				
 			</h:panelGrid>
 		</p:panel>
+			
+		<p:panel header="QUE TIPO DE VIOLAÇÃO DE DIREITO:" style="margin-bottom: 5px;">	
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="Nome:	" />
+					<p:inputText value="#{incidenteBean.incidente.violacaoVitima}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
 				
-		<div style="margin-top: 30px;">
-			<p:commandButton value="Enviar" action="#{emailBean.salvar}" update="form"
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="PROVIDÊNCIAS" style="margin-bottom: 5px;">
+			
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 1rem; color: #000;">
+					Que providências foram tomadas?
+				</span>
+			</div>
+				
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="" />
+					<p:inputTextarea value="#{incidenteBean.incidente.providencias}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<div style="margin-bottom: 20px;">
+   			 <p:outputLabel id="dataCadastro" value="#{incidenteBean.incidente.dataCadastro}" style="width: 300px;" />		
+		</div>
+				
+		<div style="margin-top: 30px; margin-bottom: 20px;">
+			<p:commandButton value="Enviar" action="#{incidenteBean.salvar}" update="form"
 				style="	border-radius: 25px; margin-right: 10px;width: 8rem;" />
 		</div>
 	</h:form>

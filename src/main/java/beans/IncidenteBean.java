@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -15,18 +16,21 @@ import utils.MessageUtil;
 public class IncidenteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private Incidente Incidente = new Incidente();
+	private Incidente incidente = new Incidente();
 	
 	private List<Incidente> list;
+	
+	private Date dataCadastro = new Date();
 	
 	private  String contarIncidente;
 					
 	public String salvar() {
 		
-		try {			
-			IncidenteDao.salvar(Incidente);
+		try {	
+			incidente.setDataCadastro(dataCadastro);
+			IncidenteDao.salvar(incidente);
 			MessageUtil.sucesso("Sucesso: ", "Incidente salvo com sucesso!");
-			Incidente = new Incidente();
+			incidente = new Incidente();
 			
 		} catch(Exception e) {
 			MessageUtil.erro("Erro: ", "Erro ao salvar o Incidente!");
@@ -36,18 +40,18 @@ public class IncidenteBean implements Serializable{
 	}
 	
 	public String editar() {		
-		IncidenteDao.editar(Incidente);
-		Incidente = new Incidente();
+		IncidenteDao.editar(incidente);
+		incidente = new Incidente();
 		return null;
 	}
 
 	public void deletar() {		
-		IncidenteDao.deletar(Incidente);
+		IncidenteDao.deletar(incidente);
 		list = IncidenteDao.listarTodos();
 	}
 	
 	public String listarPorId() {		
-		IncidenteDao.listarPorId(Incidente.getId());
+		IncidenteDao.listarPorId(incidente.getId());
 		return null;
 	}	
 	
@@ -57,12 +61,12 @@ public class IncidenteBean implements Serializable{
 	}	
 		
 	public Incidente getIncidente() {
-		return Incidente;
+		return incidente;
 	}
 
 
 	public void setIncidente(Incidente Incidente) {
-		this.Incidente = Incidente;
+		this.incidente = Incidente;
 	}
 
 
