@@ -7,54 +7,79 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-	<h:head><title>Pagina de Envio de Email</title></h:head>
-	
-	<h:body>
-		<h:form id="form">
-		
-			<p:messages id="messages" showDetail="true" closable="true">
-				<p:autoUpdate />
-			</p:messages>
-			
-			<p:panel header="Página de Envio de E-mail">
-			
+<h:head>
+	<title>Incidente</title>
+</h:head>
+
+<h:body style="background-color: #fdedfcbd; padding: 0 50px;">
+	<h:form id="form" style="background-color: #fdedfcbd;">
+
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+
 			<div>
-				<p:link outcome="listagem_incidente" value="voltar" 
+				<p:link outcome="listagem_incidente" value="voltar"
 					style="display: flex;
 					justify-content: end; 
-					margin-top: 10px;"/>		
+					margin-top: 10px;
+					margin-bottom: 10px;"/>
 			</div>
 			
-				<h:panelGrid columns="1" >
-					<div >
-						<p:outputLabel value="Destinatário "/>
-						<p:inputText value="#{emailBean.email.destinatario}" required="true" requiredMessage="Campo Obrigatorio"/>
-					</div>
-					
-					<div style="margin-bottom: 20px;">
-						<p:outputLabel value="Corpo "/>
-						<p:inputTextarea value="#{emailBean.email.corpo}"/>				
-					</div>
-					
-					<div style="margin-bottom: 20px;">
-						<p:outputLabel value="Data de Envio "/>
-						<p:datePicker value="#{emailBean.email.dataEnvio}"/>
-					</div>
-					
-					<div style="margin-bottom: 20px;">
-						<p:outputLabel value="Confirma Leitura "/>
-						<p:selectBooleanCheckbox value="#{emailBean.email.confirmaLeitura}"/>
-					</div>
-					
-					<div style="margin-top: 30px;">
-						<p:commandButton value="Enviar" action="#{emailBean.salvar}" update="form"
-							style="	border-radius: 25px; 
-									margin-right: 10px;
-									width: 8rem;"/>
-					</div>				
-								
-				</h:panelGrid>
-			</p:panel>
-		</h:form>
-	</h:body>	
+			
+			<div style="text-align: center; 
+				font-size: 1.5rem; 
+				font-style: italic; 
+				color: #3d4bbe; 
+				margin-top: 20px; 
+				font-weight: bolder;">
+					RELATÓRIO DE INCIDENTES DE VIOLAÇÃO DE DIREITOS JUNTO À CRIANÇAS E ADOLESCENTES 
+			</div>
+			<div style="margin: 30px 0px 10px 0;">
+				<span style="font-size: 1rem; font-style: italic; color: #000;">
+					*Estas informações são sigilosas e só devem ter acesso as pessoas diretamente 
+					envolvidas na resolução do caso ou responsáveis por relatá-lo.
+				</span>
+			</div>
+		
+			
+		<p:panel header="VÍTIMA" style="margin-bottom: 5px; color: #3d4bbe; ">	
+			<h:panelGrid columns="3" >
+
+				<div >
+					<p:outputLabel value="Nome: 	" />
+					<p:inputText value="#{incidenteBean.incidente.nomeVitima}"/>
+				</div>
+
+				<div >
+					<p:outputLabel value="Sexo 		" />
+					<p:inputTextarea value="#{incidenteBean.incidente.sexoVitima}" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="SUPOSTO AGRESSOR" style="margin-bottom: 5px;">	
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="Nome: 	" />
+					<p:inputText value="#{incidenteBean.incidente.nomeAgressor}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+
+				<div >
+					<p:outputLabel value="Sexo 		" />
+					<p:inputTextarea value="#{incidenteBean.incidente.sexoAgressor}" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+				
+		<div style="margin-top: 30px;">
+			<p:commandButton value="Enviar" action="#{emailBean.salvar}" update="form"
+				style="	border-radius: 25px; margin-right: 10px;width: 8rem;" />
+		</div>
+	</h:form>
+</h:body>
 </html>

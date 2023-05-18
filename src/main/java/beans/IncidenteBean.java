@@ -1,0 +1,105 @@
+package beans;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import daos.IncidenteDao;
+import entities.Incidente;
+import utils.MessageUtil;
+
+@ManagedBean
+@ViewScoped
+public class IncidenteBean implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+	private Incidente Incidente = new Incidente();
+	
+	private List<Incidente> list;
+	
+	private  String contarIncidente;
+					
+	public String salvar() {
+		
+		try {			
+			IncidenteDao.salvar(Incidente);
+			MessageUtil.sucesso("Sucesso: ", "Incidente salvo com sucesso!");
+			Incidente = new Incidente();
+			
+		} catch(Exception e) {
+			MessageUtil.erro("Erro: ", "Erro ao salvar o Incidente!");
+		}
+		
+		return null;
+	}
+	
+	public String editar() {		
+		IncidenteDao.editar(Incidente);
+		Incidente = new Incidente();
+		return null;
+	}
+
+	public void deletar() {		
+		IncidenteDao.deletar(Incidente);
+		list = IncidenteDao.listarTodos();
+	}
+	
+	public String listarPorId() {		
+		IncidenteDao.listarPorId(Incidente.getId());
+		return null;
+	}	
+	
+	public String listarTodos() {		
+		IncidenteDao.listarTodos();
+		return null;
+	}	
+		
+	public Incidente getIncidente() {
+		return Incidente;
+	}
+
+
+	public void setIncidente(Incidente Incidente) {
+		this.Incidente = Incidente;
+	}
+
+
+	public List<Incidente> getList() {
+		if (list == null) {
+			list = IncidenteDao.listarTodos();
+		}
+		return list;
+	}
+		
+	public void setList(List<Incidente> list) {
+		this.list = list;
+	}
+	
+	public String getContarIncidente() {
+		if (list == null) {
+			list = IncidenteDao.listarTodos();
+		}
+		return Integer.toString(list.size());
+	}
+
+	public void setContarIncidente(String contarIncidente) {
+		this.contarIncidente = contarIncidente;
+	}
+	
+	public String contarIncidente() {
+		return contarIncidente;	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
