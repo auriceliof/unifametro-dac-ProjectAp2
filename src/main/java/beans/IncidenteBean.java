@@ -96,14 +96,3 @@ public class IncidenteBean implements Serializable{
 		return contarIncidente;	
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
