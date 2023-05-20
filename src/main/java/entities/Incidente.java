@@ -25,10 +25,12 @@ public class Incidente implements Serializable {
 	private String sexoVitima;
     @Column(name="idade_vitima")
 	private int idadeVitima;
-    @Column(name="escolar_vitima")
-	private String EscolarVitima;
+    @Column(name="serie_vitima")
+	private String serieVitima;
+    @Column(name="turno_vitima")
+	private String turnoVitima;   
     @Column(name="endereco_vitima")
-	private String EnderecoVitima;
+	private String enderecoVitima;
 	
     @Column(name="nome_agressor")
 	private String nomeAgressor;
@@ -92,20 +94,28 @@ public class Incidente implements Serializable {
 		this.idadeVitima = idadeVitima;
 	}
 
-	public String getEscolarVitima() {
-		return EscolarVitima;
+	public String getSerieVitima() {
+		return serieVitima;
 	}
 
-	public void setEscolarVitima(String escolarVitima) {
-		EscolarVitima = escolarVitima;
+	public void setSerieVitima(String serieVitima) {
+		this.serieVitima = serieVitima;
+	}
+
+	public String getTurnoVitima() {
+		return turnoVitima;
+	}
+
+	public void setTurnoVitima(String turnoVitima) {
+		this.turnoVitima = turnoVitima;
 	}
 
 	public String getEnderecoVitima() {
-		return EnderecoVitima;
+		return enderecoVitima;
 	}
 
 	public void setEnderecoVitima(String enderecoVitima) {
-		EnderecoVitima = enderecoVitima;
+		this.enderecoVitima = enderecoVitima;
 	}
 
 	public String getNomeAgressor() {

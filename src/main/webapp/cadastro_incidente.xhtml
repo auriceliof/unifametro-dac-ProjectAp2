@@ -44,16 +44,21 @@
 		
 			
 		<p:panel header="VÍTIMA" style="margin-bottom: 5px; color: #3d4bbe; ">	
-			<h:panelGrid columns="3" >
+			<h:panelGrid columns="3" layout="flex"
+                 columnClasses="col-12 md:col-3 xl:col-2, col-12 md:col-9 xl:col-4, col-12 md:col-3 xl:col-2, col-12 md:col-9 xl:col-4"
+                 styleClass="customPanelGrid" contentStyleClass="ui-fluid">
 
-				<div >
+				<div  >
 					<p:outputLabel value="Nome: " />
 					<p:inputText value="#{incidenteBean.incidente.nomeVitima}"/>
 				</div>
 
 				<div >
 					<p:outputLabel value="Sexo: " />
-					<p:inputText value="#{incidenteBean.incidente.sexoVitima}" />
+					<p:selectOneRadio id="console" value="#{incidenteBean.incidente.sexoVitima}">
+			           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+			           <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+	      			</p:selectOneRadio>
 				</div>
 				
 				<div >
@@ -62,8 +67,14 @@
 				</div>
 				
 				<div >
-					<p:outputLabel value="Série/Turno: " />
-					<p:inputText value="#{incidenteBean.incidente.escolarVitima}" />
+					<p:outputLabel value="Série: " />
+					<p:inputText value="#{incidenteBean.incidente.serieVitima}" />
+					
+				</div>
+				
+				<div >
+					<p:outputLabel value="Turno: " />
+					<p:inputText value="#{incidenteBean.incidente.turnoVitima}" />
 				</div>
 								
 				<div >
@@ -85,7 +96,10 @@
 
 				<div >
 					<p:outputLabel value="Sexo: " />
-					<p:inputText value="#{incidenteBean.incidente.sexoAgressor}" />
+					<p:selectOneRadio id="console" value="#{incidenteBean.incidente.sexoAgressor}">
+			           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+			           <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+	      			</p:selectOneRadio>
 				</div>
 				
 				<div >
