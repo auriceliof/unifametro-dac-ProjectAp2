@@ -41,13 +41,13 @@
 					envolvidas na resolução do caso ou responsáveis por relatá-lo.
 				</span>
 			</div>
-			
+		<h:panelGroup columns="2" style="display: flex; justify-content: space-between;">
 		<p:panel header="VÍTIMA" style="color: #3d4bbe; padding: 20px 50px;">	
 			<h:panelGrid columns="3" style="padding: 20px 50px;">
 
 				<div  style="margin-bottom: 50px">
 					<p:outputLabel value="Nome: " />
-					<p:inputText value="#{incidenteBean.incidente.nomeVitima}" style="width: 300%"/>
+					<p:inputText value="#{incidenteBean.incidente.nomeVitima}" />
 				</div>
 
 				<div style="margin-bottom: 50px">
@@ -101,7 +101,7 @@
 								
 				<div style="margin-bottom: 50px">
 					<p:outputLabel value="Endereço: " />
-					<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" style="width: 300%"/>
+					<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" />
 				</div>
 				
 			</h:panelGrid>
@@ -162,6 +162,8 @@
 				
 			</h:panelGrid>
 		</p:panel>
+		
+		</h:panelGroup>	
 		
 		<p:panel header="INCIDENTE" style="padding: 20px 50px;">
 			
