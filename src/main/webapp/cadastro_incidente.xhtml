@@ -29,7 +29,6 @@
 			
 			<div style="text-align: center; 
 				font-size: 1.5rem; 
-				font-style: italic; 
 				color: #3d4bbe; 
 				margin-top: 20px; 
 				font-weight: bolder;">
@@ -117,7 +116,7 @@
 	
 					<div >
 						<p:outputLabel value="Sexo: " />
-						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.incidente.sexoAgressor}">
+						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.incidente.sexoAgressor}" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
 				           <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
 		      			</p:selectOneRadio>
@@ -140,7 +139,7 @@
 					
 					<div >
 						<p:outputLabel value="Raça/Cor: " />
-						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.incidente.racaAgressor}" layout="grid" columns="3" styleClass="grid-radio">
+						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.incidente.racaAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Branca" itemValue="Branca"/>
 				           <f:selectItem itemLabel="Preta" itemValue="Preta"/>
 				           <f:selectItem itemLabel="Parda" itemValue="Parda"/>
@@ -151,7 +150,7 @@
 					
 					<div >
 						<p:outputLabel value="Identidade de gênero: " />
-						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.incidente.generoAgressor}" layout="grid" columns="2" styleClass="grid-radio" >
+						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.incidente.generoAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Masculino Cissexual" itemValue="Masculino_Cis"/>
 				           <f:selectItem itemLabel="Feminino Cissexual" itemValue="Feminino_Cis"/>
 				           <f:selectItem itemLabel="Masculino Transexual" itemValue="Masculino_Trans"/>
@@ -161,7 +160,7 @@
 					
 					<div >
 						<p:outputLabel value="Orientação sexual: " />
-						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.incidente.sexualAgressor}" layout="grid" columns="3" styleClass="grid-radio" style="margin-bottom: 10px;">
+						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.incidente.sexualAgressor}" layout="responsive" columns="8" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Heterossexual" itemValue="Heterossexual"/>
 				           <f:selectItem itemLabel="Homossexual" itemValue="Homossexual"/>
 				           <f:selectItem itemLabel="Bissexual" itemValue="Bissexual"/>
