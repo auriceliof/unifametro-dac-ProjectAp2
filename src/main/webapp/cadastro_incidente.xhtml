@@ -179,6 +179,22 @@
 		                    <f:selectItem itemLabel="Universitário" itemValue="Universitario"/>
 	               		</p:selectOneMenu>
 					</div>
+					
+					<div style="margin-bottom: 50px">
+						<p:outputLabel value="Série: " />					
+						<p:selectOneMenu id="serieAgressor" value="#{incidenteBean.incidente.serieAgressor}" style="width:100%">
+		                    <f:selectItem itemLabel=" " itemValue=" "/>
+		                    <f:selectItem itemLabel="1ª" itemValue="1"/>
+		                    <f:selectItem itemLabel="2ª" itemValue="2"/>
+		                    <f:selectItem itemLabel="3ª" itemValue="3"/>
+		                    <f:selectItem itemLabel="4ª" itemValue="4"/>
+		                    <f:selectItem itemLabel="5ª" itemValue="5"/>
+		                    <f:selectItem itemLabel="6ª" itemValue="6"/>
+		                    <f:selectItem itemLabel="7ª" itemValue="3"/>
+		                    <f:selectItem itemLabel="8ª" itemValue="8"/>
+		                    <f:selectItem itemLabel="9ª" itemValue="9"/>
+	               		</p:selectOneMenu>
+					</div>
 				</h:panelGrid>
 			</p:panel>
 		</h:panelGroup>	

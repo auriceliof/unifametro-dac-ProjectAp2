@@ -52,6 +52,8 @@ public class Incidente implements Serializable {
 	private String sexualAgressor;
     @Column(name="escolar_agressor")
 	private String escolarAgressor;
+    @Column(name="serie_Agressor")
+   	private int serieAgressor;
 	
     @Column(name="relato_vitima")
 	private String relatoVitima;
@@ -198,6 +200,14 @@ public class Incidente implements Serializable {
 
 	public void setEscolarAgressor(String escolarAgressor) {
 		this.escolarAgressor = escolarAgressor;
+	}
+
+	public int getSerieAgressor() {
+		return serieAgressor;
+	}
+
+	public void setSerieAgressor(int serieAgressor) {
+		this.serieAgressor = serieAgressor;
 	}
 
 	public String getRelatoVitima() {
