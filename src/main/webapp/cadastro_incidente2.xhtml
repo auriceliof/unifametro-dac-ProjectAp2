@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Incidente</title>
+</h:head>
+
+<h:body style="background-color: #fdedfcbd; padding: 0 50px;">
+	<h:form id="form" style="background-color: #fdedfcbd;">
+
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+
+			<div>
+				<p:link outcome="listagem_incidente" value="voltar"
+					style="display: flex;
+					justify-content: end; 
+					margin-top: 10px;
+					margin-bottom: 10px;"/>
+			</div>
+			
+			
+			<div style="text-align: center; 
+				font-size: 1.5rem; 
+				font-style: italic; 
+				color: #3d4bbe; 
+				margin-top: 20px; 
+				font-weight: bolder;">
+					RELATÓRIO DE INCIDENTES DE VIOLAÇÃO DE DIREITOS JUNTO À CRIANÇAS E ADOLESCENTES 
+			</div>
+			<div style="margin: 30px 0px 10px 0;">
+				<span style="font-size: 1rem; font-style: italic; color: #000;">
+					*Estas informações são sigilosas e só devem ter acesso as pessoas diretamente 
+					envolvidas na resolução do caso ou responsáveis por relatá-lo.
+				</span>
+			</div>
+		
+			
+		<p:panel header="VÍTIMA" style="margin-bottom: 5px; color: #3d4bbe; ">	
+			<h:panelGrid columns="3" >
+
+				<div >
+					<p:outputLabel value="Nome: " />
+					<p:inputText value="#{incidenteBean.incidente.nomeVitima}"/>
+				</div>
+
+				<div >
+					<p:outputLabel value="Sexo: " />
+					<p:inputText value="#{incidenteBean.incidente.sexoVitima}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Idade: " />
+					<p:inputText value="#{incidenteBean.incidente.idadeVitima}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Série/Turno: " />
+					<p:inputText value="#{incidenteBean.incidente.escolarVitima}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Endereço: " />
+					<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="SUPOSTO AGRESSOR" style="margin-bottom: 5px;">	
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="Nome: " />
+					<p:inputText value="#{incidenteBean.incidente.nomeAgressor}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+
+				<div >
+					<p:outputLabel value="Sexo: " />
+					<p:inputText value="#{incidenteBean.incidente.sexoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Idade: " />
+					<p:inputText value="#{incidenteBean.incidente.idadeAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Grau de parentesco/Relacionamento com a vítima: " />
+					<p:inputText value="#{incidenteBean.incidente.parenteAgressor}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Ocupação(Profissão): " />
+					<p:inputText value="#{incidenteBean.incidente.ocupacaoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Raço/Cor: " />
+					<p:inputText value="#{incidenteBean.incidente.racaAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Identidade de gênero: " />
+					<p:inputText value="#{incidenteBean.incidente.generoAgressor}" />
+				</div>
+				
+				<div >
+					<p:outputLabel value="Orientação sexual: " />
+					<p:inputText value="#{incidenteBean.incidente.sexualAgressor}" />
+				</div>
+								
+				<div >
+					<p:outputLabel value="Escolaridade: " />
+					<p:inputText value="#{incidenteBean.incidente.escolarAgressor}" />
+				</div>
+				
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="INCIDENTE" style="margin-bottom: 5px;">
+			
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 1rem; color: #000;">
+					Relate o que a criança/adolescente contou para você. Tente ser o mais claro possivel,	mas não insista 
+					com a vitima para que ela diga além do que ela consegue, pois isso pode acarretar mais dor para ela.
+				</span>
+			</div>
+				
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="" />
+					<p:inputTextarea value="#{incidenteBean.incidente.relatoVitima}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+			
+		<p:panel header="QUE TIPO DE VIOLAÇÃO DE DIREITO:" style="margin-bottom: 5px;">	
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="Nome:	" />
+					<p:inputText value="#{incidenteBean.incidente.violacaoVitima}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<p:panel header="PROVIDÊNCIAS" style="margin-bottom: 5px;">
+			
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 1rem; color: #000;">
+					Que providências foram tomadas?
+				</span>
+			</div>
+				
+			<h:panelGrid columns="3">
+
+				<div >
+					<p:outputLabel value="" />
+					<p:inputTextarea value="#{incidenteBean.incidente.providencias}"
+						required="true" requiredMessage="Campo Obrigatorio" />
+				</div>
+				
+			</h:panelGrid>
+		</p:panel>
+		
+		<div style="margin-bottom: 20px;">
+   			 <p:outputLabel id="dataCadastro" value="#{incidenteBean.incidente.dataCadastro}" style="width: 300px;" />		
+		</div>
+				
+		<div style="margin-top: 30px; margin-bottom: 20px;">
+			<p:commandButton value="Enviar" action="#{incidenteBean.salvar}" update="form"
+				style="	border-radius: 25px; margin-right: 10px;width: 8rem;" />
+		</div>
+	</h:form>
+</h:body>
+</html>
