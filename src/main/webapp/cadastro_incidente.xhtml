@@ -43,17 +43,17 @@
 				
 			</div>
 		<h:panelGroup columns="2" style="display: flex; justify-content: space-between;">
-			<p:panel header="VÍTIMA" style="width: 100%; color: #3d4bbe; padding: 20px 10px 20px 50px;">	
+			<p:panel header="VÍTIMA" style="width: 100%; color: #3d4bbe; padding: 20px 10px 30px 50px;">	
 				<h:panelGrid columns="3" style="width: 100%; padding: 10px 10px 10px 20px;">
 	
 					<div  style="margin-bottom: 50px; ">
 						<p:outputLabel value="Nome: " />
-						<p:inputText value="#{incidenteBean.incidente.nomeVitima}" style="width:95%; margin: 10 0 50px 0;"/>
+						<p:inputText value="#{incidenteBean.incidente.nomeVitima}" style="width:95%; margin: 10 0 40px 0;" required="true" requiredMessage="Campo Obrigatorio" />
 					</div>
 	
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Sexo: " />
-						<p:selectOneRadio id="sexoVitima" value="#{incidenteBean.incidente.sexoVitima}" style="margin: 20px 0;" >
+						<p:selectOneRadio id="sexoVitima" value="#{incidenteBean.incidente.sexoVitima}" style="margin: 10px 0;" >
 				           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
 				           <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 		      			</p:selectOneRadio>
@@ -102,22 +102,22 @@
 									
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Endereço: " />
-						<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" style="width:95%; margin: 20px 0 50px 0;"/>
+						<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" style="width:95%; margin: 20px 0 30px 0;"/>
 					</div>
 				</h:panelGrid>
 			</p:panel>
 			
-			<p:panel header="SUPOSTO AGRESSOR" style="width: 100%; padding: 20px 50px 20px 10px;">	
-				<h:panelGrid columns="3" style="width: 100%; padding: 10px 10px 10px 20px;">
+			<p:panel header="SUPOSTO AGRESSOR" style="width: 100%; padding: 20px 50px 0 10px;">	
+				<h:panelGrid columns="3" style="width: 100%; padding: 10px 10px 0 20px;">
 	
 					<div >
 						<p:outputLabel value="Nome: " />
-						<p:inputText value="#{incidenteBean.incidente.nomeAgressor}" style="width:95%; margin-bottom: 10px;"/>
+						<p:inputText value="#{incidenteBean.incidente.nomeAgressor}" style="width:95%; margin-bottom: 10px;" required="true" requiredMessage="Campo Obrigatorio" />
 					</div>
 	
 					<div >
 						<p:outputLabel value="Sexo: " />
-						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.incidente.sexoAgressor}" style="margin: 10px 0;">
+						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.incidente.sexoAgressor}">
 				           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
 				           <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
 		      			</p:selectOneRadio>
@@ -140,7 +140,7 @@
 					
 					<div >
 						<p:outputLabel value="Raça/Cor: " />
-						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.incidente.racaAgressor}" style="margin: 10px 0;">
+						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.incidente.racaAgressor}" layout="grid" columns="3" styleClass="grid-radio">
 				           <f:selectItem itemLabel="Branca" itemValue="Branca"/>
 				           <f:selectItem itemLabel="Preta" itemValue="Preta"/>
 				           <f:selectItem itemLabel="Parda" itemValue="Parda"/>
@@ -151,17 +151,17 @@
 					
 					<div >
 						<p:outputLabel value="Identidade de gênero: " />
-						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.incidente.generoAgressor}" layout="grid" columns="2" styleClass="grid-radio" style="margin: 10px 0;">
-				           <f:selectItem itemLabel="Masculino Cissexual" itemValue="Masc_Cis"/>
-				           <f:selectItem itemLabel="Feminino Cissexual" itemValue="Fem_Cis"/>
-				           <f:selectItem itemLabel="Masculino Transexual" itemValue="Mas_Trans"/>
-				           <f:selectItem itemLabel="Feminino Transexual" itemValue="Fem_Trans"/>
+						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.incidente.generoAgressor}" layout="grid" columns="2" styleClass="grid-radio" >
+				           <f:selectItem itemLabel="Masculino Cissexual" itemValue="Masculino_Cis"/>
+				           <f:selectItem itemLabel="Feminino Cissexual" itemValue="Feminino_Cis"/>
+				           <f:selectItem itemLabel="Masculino Transexual" itemValue="Masculino_Trans"/>
+				           <f:selectItem itemLabel="Feminino Transexual" itemValue="Feminino_Trans"/>
 		      			</p:selectOneRadio>
 					</div>
 					
 					<div >
 						<p:outputLabel value="Orientação sexual: " />
-						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.incidente.sexualAgressor}" layout="grid" columns="3" styleClass="grid-radio" style="margin: 10px 0;">
+						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.incidente.sexualAgressor}" layout="grid" columns="3" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Heterossexual" itemValue="Heterossexual"/>
 				           <f:selectItem itemLabel="Homossexual" itemValue="Homossexual"/>
 				           <f:selectItem itemLabel="Bissexual" itemValue="Bissexual"/>
@@ -202,19 +202,18 @@
 		
 		<p:panel header="INCIDENTE" style="padding: 10px 50px;">
 			
-			<div style="padding: 10px 50px;">
+			<div style="padding: 10px 40px;">
 				<span style="font-size: 1rem; color: #000;">
 					Relate o que a criança/adolescente contou para você. Tente ser o mais claro possivel,	mas não insista 
 					com a vitima para que ela diga além do que ela consegue, pois isso pode acarretar mais dor para ela.
 				</span>
 			</div>
 				
-			<h:panelGrid columns="3" style="padding: 20px 50px;">
+			<h:panelGrid columns="3" style="padding: 20px 0; width: 100%">
 
 				<div >
 					<p:outputLabel value="" />
-					<p:inputTextarea value="#{incidenteBean.incidente.relatoVitima}"
-						required="true" requiredMessage="Campo Obrigatorio" />
+					<p:inputTextarea value="#{incidenteBean.incidente.relatoVitima}" autoResize="true" style="width: 98%; min-height: 150px;"/>
 				</div>
 				
 			</h:panelGrid>
@@ -223,10 +222,18 @@
 		<p:panel header="QUE TIPO DE VIOLAÇÃO DE DIREITO:" style="padding: 20px 50px;">	
 			<h:panelGrid columns="3" style="padding: 10px 50px;">
 
-				<div >
-					<p:outputLabel value="Nome:	" />
-					<p:inputText value="#{incidenteBean.incidente.violacaoVitima}"
-						required="true" requiredMessage="Campo Obrigatorio" />
+				<div >				
+					<p:selectOneRadio id="violacaoVitima" value="#{incidenteBean.incidente.violacaoVitima}" layout="grid" columns="5" styleClass="grid-radio" style="margin: 10px 0;">
+			           <f:selectItem itemLabel="Violência física" itemValue="violencia_fisica"/>
+			           <f:selectItem itemLabel="Negligência" itemValue="Negligencia"/>
+			           <f:selectItem itemLabel="Violência sexual" itemValue="violencia_sexual"/>
+			           <f:selectItem itemLabel="Violência psicológica" itemValue="Violencia_psicologica"/>
+			           <f:selectItem itemLabel="Automutilação" itemValue="Automutilacao"/>
+			           <f:selectItem itemLabel="Suicídio" itemValue="Suicidio"/>
+			           <f:selectItem itemLabel="Gravidez menor de 14 anos" itemValue="Gravidez_menor_14_anos"/>
+			           <f:selectItem itemLabel="Trabalho infantil" itemValue="Trabalho_infantil"/>
+			           <f:selectItem itemLabel="Bullying" itemValue="Bullying"/>			           
+		      		</p:selectOneRadio>
 				</div>
 				
 			</h:panelGrid>
@@ -234,23 +241,22 @@
 		
 		<p:panel header="PROVIDÊNCIAS" style="padding: 10px 50px;">
 			
-			<div style="padding: 10px 50px;">
+			<div style="padding: 10px 40px;">
 				<span style="font-size: 1rem; color: #000;">
-					Que providências foram tomadas?
+					Que providências foram tomadas?		
 				</span>
 			</div>
 				
-			<h:panelGrid columns="3" style="padding: 20px 50px;">
+			<h:panelGrid columns="3" style="padding: 20px 0; width: 100%">
 
 				<div >
 					<p:outputLabel value="" />
-					<p:inputTextarea value="#{incidenteBean.incidente.providencias}"
-						required="true" requiredMessage="Campo Obrigatorio" />
+					<p:inputTextarea value="#{incidenteBean.incidente.providencias}" autoResize="true" style="width: 98%; min-height: 150px;"/>
 				</div>
 				
 			</h:panelGrid>
 		</p:panel>
-		
+			
 		<div style="margin-bottom: 20px;">
    			 <p:outputLabel id="dataCadastro" value="#{incidenteBean.incidente.dataCadastro}" style="width: 300px;" />		
 		</div>
