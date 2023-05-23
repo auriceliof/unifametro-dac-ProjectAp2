@@ -52,7 +52,7 @@
 	
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Sexo: " />
-						<p:selectOneRadio id="sexoVitima" value="#{incidenteBean.incidente.sexoVitima}" style="margin: 10px 0;" >
+						<p:selectOneRadio id="sexoVitima" value="#{incidenteBean.vitima.sexoVitima}" style="margin: 10px 0;" >
 				           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
 				           <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 		      			</p:selectOneRadio>
@@ -60,12 +60,12 @@
 					
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Idade: " />
-						<p:inputText type="number" value="#{incidenteBean.incidente.idadeVitima}" style="width:95%; margin: 20px 0;"/>
+						<p:inputText type="number" value="#{incidenteBean.vitima.idadeVitima}" style="width:95%; margin: 20px 0;"/>
 					</div>
 					
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Esolaridade: " />
-						<p:selectOneMenu id="escolarVitima" value="#{incidenteBean.incidente.escolarVitima}" style="width:95%; margin: 20px 0;">
+						<p:selectOneMenu id="escolarVitima" value="#{incidenteBean.vitima.escolarVitima}" style="width:95%; margin: 20px 0;">
 		                    <f:selectItem itemLabel=" " itemValue=" "/>
 		                    <f:selectItem itemLabel="Fundamental" itemValue="Fundamental"/>
 		                    <f:selectItem itemLabel="Médio" itemValue="Medio"/>
@@ -75,7 +75,7 @@
 					
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Série: " />					
-						<p:selectOneMenu id="serieVitima" value="#{incidenteBean.incidente.serieVitima}" style="width:95%; margin: 20px 0;">
+						<p:selectOneMenu id="serieVitima" value="#{incidenteBean.vitima.serieVitima}" style="width:95%; margin: 20px 0;">
 		                    <f:selectItem itemLabel=" " itemValue=" "/>
 		                    <f:selectItem itemLabel="1ª" itemValue="1"/>
 		                    <f:selectItem itemLabel="2ª" itemValue="2"/>
@@ -91,7 +91,7 @@
 					
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Turno: " />
-						<p:selectOneMenu id="turnoVitima" value="#{incidenteBean.incidente.turnoVitima}" style="width:95%; margin: 20px 0;">
+						<p:selectOneMenu id="turnoVitima" value="#{incidenteBean.vitima.turnoVitima}" style="width:95%; margin: 20px 0;">
 		                    <f:selectItem itemLabel=" " itemValue=" "/>
 		                    <f:selectItem itemLabel="Manhã" itemValue="Manha"/>
 		                    <f:selectItem itemLabel="Tarde" itemValue="Tarde"/>
@@ -101,7 +101,7 @@
 									
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Endereço: " />
-						<p:inputText value="#{incidenteBean.incidente.enderecoVitima}" style="width:95%; margin: 20px 0 30px 0;"/>
+						<p:inputText value="#{incidenteBean.vitima.enderecoVitima}" style="width:95%; margin: 20px 0 30px 0;"/>
 					</div>
 				</h:panelGrid>
 			</p:panel>
@@ -111,12 +111,12 @@
 	
 					<div >
 						<p:outputLabel value="Nome: " />
-						<p:inputText value="#{incidenteBean.incidente.nomeAgressor}" style="width:95%; margin-bottom: 10px;" required="true" requiredMessage="Campo Obrigatorio" />
+						<p:inputText value="#{incidenteBean.agressor.nomeAgressor}" style="width:95%; margin-bottom: 10px;" required="true" requiredMessage="Campo Obrigatorio" />
 					</div>
 	
 					<div >
 						<p:outputLabel value="Sexo: " />
-						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.incidente.sexoAgressor}" style="margin-bottom: 10px;">
+						<p:selectOneRadio id="sexoAgressor" value="#{incidenteBean.agressor.sexoAgressor}" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
 				           <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
 		      			</p:selectOneRadio>
@@ -124,22 +124,22 @@
 					
 					<div >
 						<p:outputLabel value="Idade: " />
-						<p:inputText type="number" value="#{incidenteBean.incidente.idadeAgressor}" style="width:95%; margin: 5px 0;"/>
+						<p:inputText type="number" value="#{incidenteBean.agressor.idadeAgressor}" style="width:95%; margin: 5px 0;"/>
 					</div>
 					
 					<div >
 						<p:outputLabel value="Parentesco: " />
-						<p:inputText value="#{incidenteBean.incidente.parenteAgressor}" style="width:95%; margin: 5px 0;"/>
+						<p:inputText value="#{incidenteBean.agressor.parenteAgressor}" style="width:95%; margin: 5px 0;"/>
 					</div>
 									
 					<div >
 						<p:outputLabel value="Ocupação(Profissão): " style="width:100%"/>
-						<p:inputText value="#{incidenteBean.incidente.ocupacaoAgressor}" style="width:95%; margin: 5px 0;"/>
+						<p:inputText value="#{incidenteBean.agressor.ocupacaoAgressor}" style="width:95%; margin: 5px 0;"/>
 					</div>
 					
 					<div >
 						<p:outputLabel value="Raça/Cor: " />
-						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.incidente.racaAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
+						<p:selectOneRadio id="racaAgressor" value="#{incidenteBean.agressor.racaAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Branca" itemValue="Branca"/>
 				           <f:selectItem itemLabel="Preta" itemValue="Preta"/>
 				           <f:selectItem itemLabel="Parda" itemValue="Parda"/>
@@ -150,7 +150,7 @@
 					
 					<div >
 						<p:outputLabel value="Identidade de gênero: " />
-						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.incidente.generoAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
+						<p:selectOneRadio id="generoAgressor" value="#{incidenteBean.agressor.generoAgressor}" layout="responsive" columns="5" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Masculino Cissexual" itemValue="Masculino_Cis"/>
 				           <f:selectItem itemLabel="Feminino Cissexual" itemValue="Feminino_Cis"/>
 				           <f:selectItem itemLabel="Masculino Transexual" itemValue="Masculino_Trans"/>
@@ -160,7 +160,7 @@
 					
 					<div >
 						<p:outputLabel value="Orientação sexual: " />
-						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.incidente.sexualAgressor}" layout="responsive" columns="8" styleClass="grid-radio" style="margin-bottom: 10px;">
+						<p:selectOneRadio id="sexualAgressor" value="#{incidenteBean.agressor.sexualAgressor}" layout="responsive" columns="8" styleClass="grid-radio" style="margin-bottom: 10px;">
 				           <f:selectItem itemLabel="Heterossexual" itemValue="Heterossexual"/>
 				           <f:selectItem itemLabel="Homossexual" itemValue="Homossexual"/>
 				           <f:selectItem itemLabel="Bissexual" itemValue="Bissexual"/>
@@ -172,7 +172,7 @@
 									
 					<div >
 						<p:outputLabel value="Escolaridade: " />
-						<p:selectOneMenu id="escolarAgressor" value="#{incidenteBean.incidente.escolarAgressor}" style="width:95%; ">
+						<p:selectOneMenu id="escolarAgressor" value="#{incidenteBean.agressor.escolarAgressor}" style="width:95%; ">
 		                    <f:selectItem itemLabel=" " itemValue=" "/>
 		                    <f:selectItem itemLabel="Fundamental" itemValue="Fundamental"/>
 		                    <f:selectItem itemLabel="Médio" itemValue="Medio"/>
@@ -182,7 +182,7 @@
 					
 					<div style="margin-bottom: 50px">
 						<p:outputLabel value="Série: " />					
-						<p:selectOneMenu id="serieAgressor" value="#{incidenteBean.incidente.serieAgressor}" style="width:95%">
+						<p:selectOneMenu id="serieAgressor" value="#{incidenteBean.agressor.serieAgressor}" style="width:95%">
 		                    <f:selectItem itemLabel=" " itemValue=" "/>
 		                    <f:selectItem itemLabel="1ª" itemValue="1"/>
 		                    <f:selectItem itemLabel="2ª" itemValue="2"/>

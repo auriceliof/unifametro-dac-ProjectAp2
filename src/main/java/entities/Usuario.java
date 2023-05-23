@@ -1,5 +1,3 @@
-//https://www.devmedia.com.br/java-web-criando-uma-tela-de-login-com-jpa-jsf-primefaces-e-mysql/32456
-
 package entities;
 
 import java.util.Date;

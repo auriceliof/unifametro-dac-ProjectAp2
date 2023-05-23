@@ -8,7 +8,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import daos.IncidenteDao;
+import entities.Agressor;
 import entities.Incidente;
+import entities.Vitima;
 import utils.MessageUtil;
 
 @ManagedBean
@@ -17,6 +19,8 @@ public class IncidenteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Incidente incidente = new Incidente();
+	private Vitima vitima = new Vitima();
+	private Agressor agressor = new Agressor();
 	
 	private List<Incidente> list;
 	
@@ -28,9 +32,11 @@ public class IncidenteBean implements Serializable{
 		
 		try {	
 			incidente.setDataCadastro(dataCadastro);
-			IncidenteDao.salvar(incidente);
+			IncidenteDao.salvar(vitima, agressor, incidente);
 			MessageUtil.sucesso("Sucesso: ", "Incidente salvo com sucesso!");
-			incidente = new Incidente();
+			vitima = new Vitima();
+			agressor = new Agressor();
+			incidente = new Incidente();			
 			
 		} catch(Exception e) {
 			MessageUtil.erro("Erro: ", "Erro ao salvar o Incidente!");
@@ -94,5 +100,21 @@ public class IncidenteBean implements Serializable{
 	
 	public String contarIncidente() {
 		return contarIncidente;	
+	}
+
+	public Vitima getVitima() {
+		return vitima;
+	}
+
+	public void setVitima(Vitima vitima) {
+		this.vitima = vitima;
+	}
+
+	public Agressor getAgressor() {
+		return agressor;
+	}
+
+	public void setAgressor(Agressor agressor) {
+		this.agressor = agressor;
 	}
 }

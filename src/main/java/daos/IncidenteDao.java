@@ -5,15 +5,19 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import entities.Agressor;
 import entities.Incidente;
+import entities.Vitima;
 import utils.JPAUtil;
 
 public class IncidenteDao {
 	
-	public static void salvar(Incidente i) {
+	public static void salvar(Vitima v, Agressor a, Incidente i) {
 		
 		EntityManager em = JPAUtil.creatingEntityManager();
 		em.getTransaction().begin();
+		i.setVitima(v);
+		i.setAgressor(a);
 		em.persist(i);
 		em.getTransaction().commit();
 		em.close();
