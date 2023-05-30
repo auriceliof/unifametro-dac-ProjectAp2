@@ -42,7 +42,7 @@ public class UsuarioBean implements Serializable{
 		return null;
 		}
 	
-	public String editar() {		
+	public String editar() {
 		UsuarioDao.editar(usuario);
 		usuario = new Usuario();
 		return null;
