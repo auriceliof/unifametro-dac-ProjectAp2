@@ -127,11 +127,12 @@
 		
 	</h:form>
 	
-	<p:dialog header="Quantide de Incidentes" widgetVar="dlg1" minHeight="40" width="350" showEffect="fade">
+	<p:dialog header="Quantide de Incidentes" widgetVar="dlg1" minHeight="40" width="350" 
+	showEffect="fade" modal="true" closeOnEscape="true">
  		<p:outputLabel value="#{incidenteBean.contarIncidente}"/>
 	</p:dialog>
 		
-	<p:dialog header="Visualizar Incidentes" widgetVar="visualizar" >
+	<p:dialog header="Visualizar Incidentes" widgetVar="visualizar" modal="true" closeOnEscape="true">
 		<h:form id="form_view" >
 			<h:panelGrid columns="2" cellpadding="5" id="visualizar">
 					<p:outputLabel for="id" value="Id: "/>
@@ -155,7 +156,7 @@
 		</h:form>
 	</p:dialog>			
 	
-	<p:dialog header="Editar incidente" widgetVar="editar">
+	<p:dialog header="Editar incidente" widgetVar="editar" modal="true" closeOnEscape="true">
 		<h:form id="form_edit">
 			<h:panelGrid columns="2" cellpadding="5" id="editar">
 				<p:outputLabel for="id" value="Id: "/>
@@ -186,7 +187,7 @@
 		</h:form>
 	</p:dialog>
 	
-	<p:dialog header="Deseja relamente excluir o incidente?" widgetVar="excluir">
+	<p:dialog header="Deseja relamente excluir o incidente?" widgetVar="excluir" modal="true" closeOnEscape="true">
 		<h:form id="form_del">
 			<h:panelGrid columns="2" cellpadding="5" id="excluir">
 				<p:inputText id="destinatario" value="#{incidenteBean.incidente.id}" disabled="true"/>

@@ -120,11 +120,12 @@
 		
 	</h:form>
 	
-	<p:dialog header="Quantide de Usuário" widgetVar="dlg1" minHeight="40" width="350" showEffect="fade">
+	<p:dialog header="Quantide de Usuário" widgetVar="dlg1" minHeight="40" width="350" 
+	showEffect="fade" modal="true" closeOnEscape="true">
  		<p:outputLabel value="#{usuarioBean.contarUsuario}"/>
 	</p:dialog>
 		
-	<p:dialog header="Visualizar Usuario" widgetVar="visualizar" >
+	<p:dialog header="Visualizar Usuario" widgetVar="visualizar" modal="true" closeOnEscape="true">
 		<h:form id="form_view" >
 			<h:panelGrid columns="2" cellpadding="5" id="visualizar" style="width: 500px;">
 				<p:outputLabel for="nome" value="Nome: "/>
@@ -143,7 +144,7 @@
 		</h:form>
 	</p:dialog>			
 	
-	<p:dialog header="Editar Usuario" widgetVar="editar" >
+	<p:dialog header="Editar Usuario" widgetVar="editar" modal="true" closeOnEscape="true">
 		<h:form id="form_edit">
 			<h:panelGrid columns="2" cellpadding="5" id="editar" style="width: 500px;">
 				<p:outputLabel for="nome" value="Nome:"/>
@@ -160,7 +161,7 @@
 		</h:form>
 	</p:dialog>
 	
-	<p:dialog header="Deseja relamente excluir o Usuário?" widgetVar="excluir">
+	<p:dialog header="Deseja relamente excluir o Usuário?" widgetVar="excluir" modal="true" closeOnEscape="true">
 		<h:form id="form_del">
 			<h:panelGrid columns="2" cellpadding="5" id="excluir" style="width: 400px;">
 				<p:inputText id="usuario" value="#{usuarioBean.usuario.nomeUsuario}" disabled="true" style="width: 300px;"/>

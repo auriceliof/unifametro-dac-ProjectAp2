@@ -12,12 +12,10 @@
 </h:head>
 
 <h:body style="background-color: #fdedfc70; padding: 0 50px;">
-	<h:form id="form1">
+	<h:form id="form1" >
 
 
 		<p:panel header="Listagem de Usuários">
-
-
 
 			<div
 				style="display: flex; justify-content: end; align-items: center; margin-bottom: 25px;">
@@ -33,12 +31,13 @@
 					width: 3rem;" />
 			</div>
 
-			<p:dataTable id="dt" value="#{usuarioBean.list}" var="row"
-				rowKey="#{l.id}" scrollRows="20" scrollable="true"
-				virtualScroll="true" scrollHeight="180" rows="40"
+			<p:dataTable id="dt" value="#{usuarioBean.list}" var="u"
+				scrollRows="20" scrollable="true" virtualScroll="true"
+				scrollHeight="180" rows="40" update="form_edit"
+				
 				style="margin-bottom:0; text-align: center">
 
-				<p:column field="id" headerText="Id" style="text-align: center" />
+				<p:column field="id" headerText="Id"  style="text-align: center"/>
 
 				<p:column field="nomeUsuario" headerText="Nome"
 					style="text-align: center" />
@@ -49,87 +48,56 @@
 				<p:column field="dataCadastro" headerText="Data de Cadastro"
 					style="text-align: center" />
 
-				<p:column headerText="Ações" style="text-align: center">
+				<p:column headerText="Ações">
 
 					<p:column>
 						<p:commandButton icon="pi pi-pencil"
-							oncomplete="PF('editar').show()" title="Editar"
-							update="form_edit"
+							oncomplete="PF('editar').show()" title="Editar" update="form_edit"
 							style="border: 5px solid; 
 							border-radius: 50%; 
 							background-color: #8e44ad;
 							margin-right: 7px;
 							width: 3rem;
 							height: 3rem;">
-							<f:setPropertyActionListener value="#{l}"
+							<f:setPropertyActionListener value="#{u}"
 								target="#{usuarioBean.usuario}" />
 						</p:commandButton>
 					</p:column>
-
-				</p:column>
-
-			</p:dataTable>
-
+					
+				</p:column >
+			</p:dataTable >
 		</p:panel>
-
 	</h:form>
 
-
-
-	<p:dialog header="Quantide de Usuário" widgetVar="dlg1" minHeight="40"
-		width="350" showEffect="fade">
-		<p:outputLabel value="#{usuarioBean.contarUsuario}" />
-	</p:dialog>
-
-	<p:dialog header="Visualizar Usuario" widgetVar="visualizar">
-		<h:form id="form_view">
-			<h:panelGrid columns="2" cellpadding="5" id="visualizar"
-				style="width: 500px;">
-				<p:outputLabel for="nome" value="Nome: " />
-				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}"
-					disabled="true" style="width: 300px;" />
-
-				<p:outputLabel for="login" value="Login: " />
-				<p:inputText id="login" value="#{usuarioBean.usuario.login}"
-					disabled="true" style="width: 300px;" />
-
-				<p:outputLabel for="senha" value="Senha: " />
-				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}"
-					disabled="true" style="width: 300px;" />
-
-				<p:outputLabel for="dataCadastro" value="Data de Cadastro: " />
-				<p:datePicker id="dataCadastro"
-					value="#{usuarioBean.usuario.dataCadastro}" disabled="true"
-					style="width: 300px;" />
-
-			</h:panelGrid>
-		</h:form>
-	</p:dialog>
-
-	<p:dialog header="Editar Usuario" widgetVar="editar">
+	<p:panel header="Edição de Usuário" widgetVar="editar" style="margin-top: 15px;">
 		<h:form id="form_edit">
-			<h:panelGrid columns="2" cellpadding="5" id="editar"
-				style="width: 500px;">
-				<p:outputLabel for="nome" value="Nome:" />
-				<p:inputText id="nome" value="#{usuarioBean.usuario.nomeUsuario}"
-					required="true" requiredMessage="Campo Obrigatorio"
-					style="width: 300px;" />
-
-				<p:outputLabel for="login" value="Login:" />
-				<p:inputText id="login" value="#{usuarioBean.usuario.login}"
-					required="true" requiredMessage="Campo Obrigatorio"
-					style="width: 300px;" />
-
-				<p:outputLabel for="senha" value="Senha:" />
-				<p:inputText id="senha" value="#{usuarioBean.usuario.senha}"
-					required="true" requiredMessage="Campo Obrigatorio"
-					style="width: 300px;" />
+			<h:panelGrid columns="3" style="min-width: 30%; padding: 10px 10px 10px 20px;">
+				<div style="margin-bottom: 50px;">
+					<p:outputLabel value="Id: " />
+					<p:inputText value="#{usuarioBean.usuario.id}" style="width:95%; margin: 10 0 40px 0;" disabled="true"/>
+				</div>
+				
+				<div style="margin-bottom: 50px;">
+					<p:outputLabel value="Nome: " />
+					<p:inputText value="#{usuarioBean.usuario.nomeUsuario}" style="width:95%; margin: 10 0 40px 0;" />
+				</div>
+				
+				<div style="margin-bottom: 50px;">
+					<p:outputLabel value="Login: " />
+					<p:inputText value="#{usuarioBean.usuario.login}" style="width:95%; margin: 10 0 40px 0;" />
+				</div>
+				<div style="margin-bottom: 50px;">
+					<p:outputLabel value="Senha: " />
+					<p:inputText value="#{usuarioBean.usuario.senha}" style="width:95%; margin: 10 0 40px 0;" />
+				</div>
+				<div style="margin-bottom: 50px;">
+					<p:outputLabel value="Data do Cadastro: " />
+					<p:inputText value="#{usuarioBean.usuario.dataCadastro}" style="width:95%; margin: 10 0 40px 0;" disabled="true"/>
+				</div>
 			</h:panelGrid>
-
-			<p:commandButton value="Atualizar" action="#{usuarioBean.editar}"
-				oncomplete="PF('editar').hide()"
-				style="background-color:#27ae60; margin-top: 40px;" update="form1" />
 		</h:form>
-	</p:dialog>
+	</p:panel>
+
+
 </h:body>
 </html>
